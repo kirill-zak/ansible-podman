@@ -1,5 +1,5 @@
 ---
-- name: Ensure Podman is started and enabled at boot.
+- name: Set state and enabled status for Podman service.
   ansible.builtin.service:
     name: podman
     state: "{{ podman_service_state }}"
