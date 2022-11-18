@@ -7,6 +7,10 @@
   include_tasks: install/debian.yml
   when: ansible_distribution == 'Debian'
 
+- name: Include Fedora install task
+  include_tasks: install/fedora.yml
+  when: ansible_distribution == 'Fedora'
+
 - name: Include Ubuntu install task
   include_tasks: install/ubuntu.yml
   when: ansible_distribution == 'Ubuntu'
