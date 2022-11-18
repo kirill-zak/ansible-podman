@@ -36,6 +36,7 @@ jobs:
 
       matrix:
         distr:
+          - geerlingguy/docker-centos8
           - geerlingguy/docker-debian11
           - geerlingguy/docker-ubuntu2204
 

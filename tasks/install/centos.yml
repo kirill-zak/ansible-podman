@@ -1,0 +1,9 @@
+---
+- name: Install Docker
+  ansible.builtin.yum:
+    name: podman
+    state: present
+  register: result
+  until: result is success
+  retries: 5
+  delay: 5

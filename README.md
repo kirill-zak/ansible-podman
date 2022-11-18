@@ -4,6 +4,7 @@ An Ansible role that installs the latest version of Podman
 
 ## Support distributive
 
+* CentOS 8
 * Debian 11 (Bullseye)
 * Ubuntu 22.04 (Jammy Jellyfish)
 
