@@ -1,0 +1,61 @@
+---
+name: CI
+'on':
+  pull_request:
+  push:
+    branches:
+      - master
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the codebase
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install lint dependencies
+        run: pip3 install yamllint ansible-lint
+
+      - name: Run linter
+        run: |
+          yamllint .
+          ansible-lint
+
+  test:
+    name: Molecule
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+
+      matrix:
+        distr:
+          - geerlingguy/docker-debian11
+          - geerlingguy/docker-ubuntu2204
+
+    steps:
+      - name: Checkout the codebase
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install test dependencies
+        run: pip3 install ansible molecule[docker] docker yamllint ansible-lint
+
+      - name: Run Molecule tests
+        run: molecule test
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
+          MOLECULE_DISTR: ${{ matrix.distr }}
+          MOLECULE_DOCKER_COMMAND: ${{ matrix.command }}
