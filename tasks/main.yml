@@ -1,0 +1,11 @@
+---
+- name: Include Debian install task
+  include_tasks: install/debian.yml
+  when: ansible_distribution == 'Debian'
+
+- name: Include Ubuntu install task
+  include_tasks: install/ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+
+- name: Include post post process task
+  include_tasks: post_process.yml

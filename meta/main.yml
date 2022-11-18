@@ -1,0 +1,18 @@
+---
+galaxy_info:
+  author: kirill_zak
+  description: Install Podman
+  company: https://kirill-zak.ru
+  license: GPL-2.0-or-later
+  min_ansible_version: '2.7'
+  platforms:
+    - name: Debian
+      versions:
+        - bullseye
+    - name: Ubuntu
+      versions:
+        - jammy
+
+  galaxy_tags: [podman, container]
+
+dependencies: []
