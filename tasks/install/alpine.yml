@@ -1,0 +1,19 @@
+---
+- name: Install Podman
+  community.general.apk:
+    name: podman
+    state: latest
+    no_cache: true
+
+- name: Set cgroups v2 to unified
+  ansible.builtin.lineinfile:
+    path: "/etc/rc.conf"
+    regexp: "#rc_cgroup_mode=\"hybrid\""
+    line: "rc_cgroup_mode=\"unified\""
+
+- name: Enable the cgroups service
+  ansible.builtin.service:
+    name: cgroups
+    state: "started"
+    enabled: true
+  changed_when: false
