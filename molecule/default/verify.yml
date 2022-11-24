@@ -1,14 +1,27 @@
 ---
-# This is an example playbook to execute Ansible tests.
-
 - name: Verify
   hosts: all
-  gather_facts: false
   tasks:
-    - name: Gather the package facts
+    # Verify Podman package status for not Alpine Linux
+    - name: Gather the package facts for NOT Alpine Linux
       ansible.builtin.package_facts:
         manager: auto
+      when: ansible_distribution != 'Alpine'
 
-    - name: Check if podman package installed
+    - name: Check if podman package installed for NOT Alpine Linux
       ansible.builtin.assert:
         that: "'podman' in ansible_facts.packages"
+      when: ansible_distribution != 'Alpine'
+
+    # Verify Podman package status for Alpine Linux
+    - name: Get Podman package status for Alpine Linux
+      community.general.apk:
+        name: podman
+        state: latest
+      register: alpine_package_facts
+      when: ansible_distribution == 'Alpine'
+
+    - name: Check Podman package status for Alpine Linux
+      ansible.builtin.assert:
+        that: "false == alpine_package_facts['changed']"
+      when: ansible_distribution == 'Alpine'
