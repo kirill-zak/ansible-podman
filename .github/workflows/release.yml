@@ -56,6 +56,8 @@ jobs:
             tag: 3.16.4
           - distr: kirillzak/docker-alpine
             tag: 3.17.0
+          - distr: kirillzak/docker-alpine
+            tag: 3.17.1
 
     steps:
       - name: Checkout the codebase
