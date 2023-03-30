@@ -9,7 +9,7 @@ driver:
   name: podman
 platforms:
   - name: instance
-    image: "${MOLECULE_DISTR:-kirillzak/docker-alpine}-ansible:${MOLECULE_TAG:-3.17.0}"
+    image: "${MOLECULE_DISTR:-kirillzak/docker-alpine}-ansible:${MOLECULE_TAG:-latest}"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
