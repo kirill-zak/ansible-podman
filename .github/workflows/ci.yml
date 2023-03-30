@@ -54,6 +54,8 @@ jobs:
           - distr: kirillzak/docker-alpine
             tag: 3.16.3
           - distr: kirillzak/docker-alpine
+            tag: 3.16.4
+          - distr: kirillzak/docker-alpine
             tag: 3.17.0
 
     steps:
