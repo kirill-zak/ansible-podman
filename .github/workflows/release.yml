@@ -42,6 +42,7 @@ jobs:
           - geerlingguy/docker-centos8
           - geerlingguy/docker-debian11
           - geerlingguy/docker-fedora36
+          - geerlingguy/docker-fedora37
           - geerlingguy/docker-ubuntu2204
         include:
           - distr: kirillzak/docker-alpine
