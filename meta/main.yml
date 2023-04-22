@@ -19,6 +19,7 @@ galaxy_info:
       versions:
         - "36"
         - "37"
+        - "38"
     - name: Ubuntu
       versions:
         - jammy
