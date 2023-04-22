@@ -32,7 +32,7 @@ jobs:
           ansible-lint .
 
   test-alpine:
-    name: Molecule
+    name: Molecule test - Alpine Linux
     runs-on: ubuntu-latest
 
     strategy:
@@ -65,7 +65,7 @@ jobs:
           MOLECULE_TAG: ${{ matrix.tag }}
 
   test-centos:
-    name: Molecule
+    name: Molecule test - CentOS
     runs-on: ubuntu-latest
 
     steps:
@@ -79,9 +79,6 @@ jobs:
 
       - name: Install test dependencies
         run: pip3 install ansible molecule[podman] podman yamllint ansible-lint
-
-      - name: Install ansible dependencies
-        run: ansible-galaxy collection install community.general
 
       - name: Run Molecule tests
         run: molecule test
@@ -91,7 +88,7 @@ jobs:
           MOLECULE_DISTR: geerlingguy/docker-centos8-ansible
 
   test-debian:
-    name: Molecule
+    name: Molecule test - Debian
     runs-on: ubuntu-latest
 
     steps:
@@ -105,9 +102,6 @@ jobs:
 
       - name: Install test dependencies
         run: pip3 install ansible molecule[podman] podman yamllint ansible-lint
-
-      - name: Install ansible dependencies
-        run: ansible-galaxy collection install community.general
 
       - name: Run Molecule tests
         run: molecule test
@@ -118,7 +112,7 @@ jobs:
           MOLECULE_TAG: 11
 
   test-fedora:
-    name: Molecule
+    name: Molecule test - Fedora Linux
     runs-on: ubuntu-latest
 
     strategy:
@@ -139,9 +133,6 @@ jobs:
       - name: Install test dependencies
         run: pip3 install ansible molecule[podman] podman yamllint ansible-lint
 
-      - name: Install ansible dependencies
-        run: ansible-galaxy collection install community.general
-
       - name: Run Molecule tests
         run: molecule test
         env:
@@ -151,7 +142,7 @@ jobs:
           MOLECULE_TAG: ${{ matrix.tag }}
 
   test-ubuntu:
-    name: Molecule
+    name: Molecule test - Ubuntu
     runs-on: ubuntu-latest
 
     steps:
@@ -165,9 +156,6 @@ jobs:
 
       - name: Install test dependencies
         run: pip3 install ansible molecule[podman] podman yamllint ansible-lint
-
-      - name: Install ansible dependencies
-        run: ansible-galaxy collection install community.general
 
       - name: Run Molecule tests
         run: molecule test
