@@ -51,7 +51,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies
-        run: pip3 install ansible molecule molecule-podman podman yamllint ansible-lint
+        run: pip3 install ansible molecule 'molecule-plugins[podman]' podman yamllint ansible-lint
 
       - name: Install ansible dependencies
         run: ansible-galaxy collection install community.general
@@ -78,7 +78,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies
-        run: pip3 install ansible molecule molecule-podman podman yamllint ansible-lint
+        run: pip3 install ansible molecule 'molecule-plugins[podman]' podman yamllint ansible-lint
 
       - name: Run Molecule tests
         run: molecule test
@@ -101,7 +101,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies
-        run: pip3 install ansible molecule molecule-podman podman yamllint ansible-lint
+        run: pip3 install ansible molecule 'molecule-plugins[podman]' podman yamllint ansible-lint
 
       - name: Run Molecule tests
         run: molecule test
@@ -131,7 +131,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies
-        run: pip3 install ansible molecule molecule-podman podman yamllint ansible-lint
+        run: pip3 install ansible molecule 'molecule-plugins[podman]' podman yamllint ansible-lint
 
       - name: Run Molecule tests
         run: molecule test
@@ -155,7 +155,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install test dependencies
-        run: pip3 install ansible molecule molecule-podman molecule-podman podman yamllint ansible-lint
+        run: pip3 install ansible molecule 'molecule-plugins[podman]' podman yamllint ansible-lint
 
       - name: Run Molecule tests
         run: molecule test
