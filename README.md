@@ -4,8 +4,9 @@ An Ansible role that installs the latest version of Podman
 
 ## Support distributive
 
-* Alpine Linux 3.17.x (`3.17.0`, `3.17.1`, `3.17.2`)
 * Alpine Linux 3.16.x (`3.16.0`, `3.16.1`, `3.16.2`, `3.16.3`, `3.16.4`)
+* Alpine Linux 3.17.x (`3.17.0`, `3.17.1`, `3.17.2`)
+* Alpine Linux 3.18.x (`3.18.0`)
 * CentOS `8`
 * Debian `11` (Bullseye)
 * Fedora `36`, `37`, `38`
