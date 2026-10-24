@@ -21,6 +21,11 @@ galaxy_info:
         - "36"
         - "37"
         - "38"
+        - "41"
+        - "42"
+    - name: Rocky
+      versions:
+        - "9"
     - name: Ubuntu
       versions:
         - jammy

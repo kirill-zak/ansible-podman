@@ -2,7 +2,7 @@
 - name: Install Podman
   ansible.builtin.yum:
     name: podman
-    state: present
+    state: "{{ podman_package_state }}"
   register: result
   until: result is success
   retries: 5

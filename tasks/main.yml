@@ -3,6 +3,10 @@
   include_tasks: install/almalinux.yml
   when: ansible_distribution == 'AlmaLinux'
 
+- name: Include Rocky Linux install task
+  include_tasks: install/rockylinux.yml
+  when: ansible_distribution == 'Rocky'
+
 - name: Include Alpine Linux install task
   include_tasks: install/alpine.yml
   when: ansible_distribution == 'Alpine'

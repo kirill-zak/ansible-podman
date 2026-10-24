@@ -3,4 +3,4 @@
   ansible.builtin.apt:
     update_cache: true
     name: podman
-    state: present
+    state: "{{ podman_package_state }}"

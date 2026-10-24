@@ -1,3 +1,17 @@
 ---
 podman_service_state: stopped
 podman_service_enabled: false
+
+# Manage the podman service state/enablement after install. Disable (false)
+# in init-less environments (e.g. containers) where no systemd/openrc/init
+# daemon runs and the service module reports "unknown state".
+podman_manage_service: true
+
+# Apply Alpine-specific cgroups v2/rc.conf configuration and enable the
+# cgroups service. Disable (false) in containers where this is unnecessary
+# or the openrc service cannot be managed.
+podman_manage_cgroups: true
+
+# Package state for distro package manager installs. "present" installs the
+# distro's default podman; "latest" upgrades to the newest the mirrors carry.
+podman_package_state: present

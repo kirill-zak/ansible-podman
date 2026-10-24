@@ -2,14 +2,17 @@
 - name: Install Podman
   community.general.apk:
     name: podman
-    state: latest
+    state: "{{ podman_package_state }}"
     no_cache: true
 
+# cgroups v2/unified tweaks are distro tuning for openrc hosts; unnecessary
+# (and unmanageable) inside containers where openrc does not run.
 - name: Set cgroups v2 to unified
   ansible.builtin.lineinfile:
     path: "/etc/rc.conf"
     regexp: "#rc_cgroup_mode=\"hybrid\""
     line: "rc_cgroup_mode=\"unified\""
+  when: podman_manage_cgroups | bool
 
 - name: Enable the cgroups service
   ansible.builtin.service:
@@ -17,3 +20,4 @@
     state: "started"
     enabled: true
   changed_when: false
+  when: podman_manage_cgroups | bool

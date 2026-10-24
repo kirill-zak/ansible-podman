@@ -1,7 +1,10 @@
 ---
+# Only manage the service where an init system actually runs; in containers
+# (no systemd/openrc daemon) the service module fails with "unknown state".
 - name: Set state and enabled status for Podman service.
   ansible.builtin.service:
     name: podman
     state: "{{ podman_service_state }}"
     enabled: "{{ podman_service_enabled }}"
   changed_when: false
+  when: podman_manage_service | bool
