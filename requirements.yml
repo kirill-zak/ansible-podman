@@ -1,0 +1,5 @@
+---
+collections:
+  # community.general provides the apk module used in molecule verify
+  # (Alpine package checks) and in the role's Alpine install tasks.
+  - name: community.general
