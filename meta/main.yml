@@ -4,7 +4,9 @@ galaxy_info:
   description: Install Podman
   company: https://kirill-zak.ru
   license: GPL-2.0-or-later
-  min_ansible_version: '2.7'
+  min_ansible_version: '2.16'
+  namespace: kirill_zak
+  role_name: podman
   platforms:
     - name: Alpine
       versions:
@@ -25,6 +27,6 @@ galaxy_info:
       versions:
         - jammy
 
-  galaxy_tags: [podman, container]
+  galaxy_tags: [podman, containers, packages, linux]
 
 dependencies: []
