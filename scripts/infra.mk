@@ -18,4 +18,14 @@ update-venv:
 	$(VENV_DIR)/bin/pip install --upgrade pip
 	$(VENV_DIR)/bin/pip install --upgrade -r $(REQUIREMENTS)
 
-.PHONY: create-venv update-venv
+# Open a new interactive shell with the venv declared on PATH.
+# This mimics "source $(VENV_DIR)/bin/activate", but works from make:
+# recipes run in a subshell, so the environment cannot be changed in the
+# calling shell. Exit the spawned shell with 'exit' to return.
+activate:
+	@test -x "$(VENV_DIR)/bin/ansible" || { echo "'$(VENV_DIR)' venv not found, run 'make create-venv' first" >&2; exit 1; }
+	@export PATH="$(CURDIR)/$(VENV_DIR)/bin:$$PATH"; \
+	echo "Activated $(VENV_DIR) venv. Type 'exit' to leave."; \
+	exec "$$SHELL"
+
+.PHONY: create-venv update-venv activate

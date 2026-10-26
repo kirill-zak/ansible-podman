@@ -4,7 +4,7 @@
   become: true
 
   pre_tasks:
-    - name: Wait for systemd to complete initialization.  # noqa 303
+    - name: Wait for systemd to complete initialization.  # noqa: command-instead-of-module
       ansible.builtin.command: systemctl is-system-running
       register: systemctl_status
       until: >
@@ -18,5 +18,5 @@
 
   tasks:
     - name: "Include kirill_zak.podman"
-      include_role:
+      ansible.builtin.include_role:
         name: "kirill_zak.podman"
