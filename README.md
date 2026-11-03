@@ -25,12 +25,12 @@ roles:
 
 | Distribution | Versions |
 | ------------ | -------- |
-| AlmaLinux    | 9.0, 9.1, 9.2 |
-| Alpine Linux | 3.16.x (`3.16.0`–`3.16.5`), 3.17.x (`3.17.0`–`3.17.3`), 3.18.x (`3.18.0`) |
-| CentOS       | 8 |
-| Debian       | 11 (Bullseye) |
-| Fedora       | 36, 37, 38 |
-| Ubuntu       | 22.04 (Jammy Jellyfish) |
+| AlmaLinux    | 8.5–8.10, 9.0–9.8 |
+| Alpine Linux | 3.22.x (`3.22.0`–`3.22.4`), 3.23.x (`3.23.0`–`3.23.4`) |
+| Debian       | 12 (Bookworm), 13 (Trixie) |
+| Fedora       | 43, 44 |
+| Rocky Linux  | 8.5–8.9, 9.0–9.8 |
+| Ubuntu       | 22.04 (Jammy Jellyfish), 24.04 (Noble Numbat), 26.04 (Resolute Raccoon) |
 
 ## Requirements
 

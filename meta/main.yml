@@ -8,24 +8,33 @@ galaxy_info:
   namespace: kirill_zak
   role_name: podman
   platforms:
+    - name: AlmaLinux
+      versions:
+        - "8"
+        - "9"
     - name: Alpine
       versions:
         - "all"
     - name: Debian
       versions:
-        - bullseye
+        - bookworm
+        - trixie
     - name: EL
       versions:
         - "8"
         - "9"
     - name: Fedora
       versions:
-        - "36"
-        - "37"
-        - "38"
+        - "43"
+        - "44"
+    - name: Rocky
+      versions:
+        - "all"
     - name: Ubuntu
       versions:
         - jammy
+        - noble
+        - resolute
 
   galaxy_tags: [podman, containers, packages, linux]
 

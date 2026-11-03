@@ -7,10 +7,6 @@
   ansible.builtin.include_tasks: install/alpine.yml
   when: ansible_distribution == 'Alpine'
 
-- name: Include CentOS install task
-  ansible.builtin.include_tasks: install/centos.yml
-  when: ansible_distribution == 'CentOS'
-
 - name: Include Debian install task
   ansible.builtin.include_tasks: install/debian.yml
   when: ansible_distribution == 'Debian'
@@ -18,6 +14,10 @@
 - name: Include Fedora install task
   ansible.builtin.include_tasks: install/fedora.yml
   when: ansible_distribution == 'Fedora'
+
+- name: Include Rocky Linux install task
+  ansible.builtin.include_tasks: install/rockylinux.yml
+  when: ansible_distribution == 'Rocky'
 
 - name: Include Ubuntu install task
   ansible.builtin.include_tasks: install/ubuntu.yml

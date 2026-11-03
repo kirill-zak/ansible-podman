@@ -1,6 +1,4 @@
 ---
-dependency:
-  name: galaxy
 driver:
   name: podman
 platforms:
@@ -12,5 +10,19 @@ platforms:
     pre_build_image: true
 provisioner:
   name: ansible
+scenario:
+  # Collections (community.general) are provided by the environment: CI
+  # installs requirements.yml before running molecule, and locally
+  # 'make create-venv' installs them into the .ansible venv. The galaxy
+  # dependency phase is therefore not needed; the sequence also skips the
+  # optional prepare/cleanup/side_effect playbooks so molecule stays quiet.
+  test_sequence:
+    - destroy
+    - syntax
+    - create
+    - converge
+    - idempotence
+    - verify
+    - destroy
 verifier:
   name: ansible
