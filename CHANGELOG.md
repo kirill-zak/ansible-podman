@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2026-11-05
+
 ### Added
 
 - Rocky Linux 8.x and 9.x support (`tasks/install/rockylinux.yml`).
