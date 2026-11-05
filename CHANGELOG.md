@@ -35,6 +35,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   so the converge playbook now connects as the root user the podman driver
   already provides and no longer escalates via `become`, avoiding sudo
   altogether.
+- Fedora 43/44 tests failing with `Could not import the libdnf5 python
+  module`: the `dnf` task now pins `use_backend: dnf4`, since the test images
+  ship the dnf4 (`python3-dnf`) bindings but not `python3-libdnf5`, which the
+  default dnf5 backend requires.
 
 ### Removed
 
