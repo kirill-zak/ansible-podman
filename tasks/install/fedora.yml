@@ -3,6 +3,11 @@
   ansible.builtin.dnf:
     name: podman
     state: present
+    # Fedora 41+ reports ansible_pkg_mgr=dnf5, which makes the dnf module
+    # dispatch to the dnf5 backend. The test images do not ship the
+    # python3-libdnf5 bindings, so fall back to the dnf4 backend, which is
+    # available in the images via python3-dnf.
+    use_backend: dnf4
   register: result
   until: result is success
   retries: 5
