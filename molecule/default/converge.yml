@@ -1,7 +1,13 @@
 ---
 - name: Converge
   hosts: all
-  become: true
+  # The podman driver already connects as root inside the container, so there
+  # is no need to escalate via sudo. Under the rootless podman available on
+  # GitHub runners, sudo in the systemd-based AlmaLinux/Rocky/Fedora images
+  # fails with "PAM account management error" (PAM cannot retrieve
+  # authentication info in the user namespace); connecting as root without
+  # become avoids sudo altogether.
+  become: false
 
   pre_tasks:
     - name: Wait for systemd to complete initialization.  # noqa: command-instead-of-module

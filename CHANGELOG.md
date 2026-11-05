@@ -26,6 +26,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   used phases (drop dependency/prepare/cleanup/side_effect), silencing
   "missing playbook"/"missing requirements file" noise.
 
+### Fixed
+
+- Molecule tests for AlmaLinux, Rocky Linux and Fedora failing in CI on the
+  first task with `sudo: PAM account management error`. Sudo is broken inside
+  the systemd-based images under the rootless podman available on GitHub
+  runners (PAM cannot retrieve authentication info in the user namespace),
+  so the converge playbook now connects as the root user the podman driver
+  already provides and no longer escalates via `become`, avoiding sudo
+  altogether.
+
 ### Removed
 
 - CentOS 8 support and the `geerlingguy/docker-centos8-ansible` test image.
